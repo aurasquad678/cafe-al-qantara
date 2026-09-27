@@ -565,6 +565,72 @@ h1 {
   transform: translateY(0);
 }
 
+/* --- تصميم النافذة المنبثقة للاقتراح (تتوافق مع iOS و iPhone) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: rgba(34, 22, 15, 0.95);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 10px 30px var(--gold-glow), 0 20px 50px rgba(0,0,0,0.8);
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1);
+}
+
+.modal-card h3 {
+  font-family: Amiri, serif;
+  color: var(--gold);
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.modal-card p {
+  color: var(--cream);
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.suggested-item-name {
+  font-family: Amiri, serif;
+  font-size: 26px;
+  color: #f1cf96;
+  background: rgba(215, 164, 91, 0.15);
+  border: 1px dashed var(--gold);
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin: 15px 0 20px;
+  font-weight: bold;
+}
+
 footer { 
   text-align: center; 
   color: var(--muted); 
@@ -615,7 +681,7 @@ footer {
     <ul class="nav-links">
       <li><a href="#menu">المنيو</a></li>
       <li><a href="#about">عن القهوة</a></li>
-      <li><a href="#gallery">معرض الصور</a></li>
+      <li><a href="#gallery">صنع بسحرك✨</a></li>
     </ul>
   </div>
 </nav>
@@ -656,7 +722,7 @@ footer {
     <!-- قسم الأكثر طلباً -->
     <div class="featured-grid">
       <div class="featured-card" data-aos="fade-right" data-aos-duration="600">
-        <span class="featured-badge"> 🧉رالأكثر طلباً</span>
+        <span class="featured-badge"> 🧉الأكثر طلباً</span>
         <h4> مته</h4>
       </div>
       <div class="featured-card" data-aos="fade-up" data-aos-duration="600">
@@ -746,14 +812,14 @@ footer {
         </button>
         <div class="category-body">
           <div class="items">
-            <div class="item-card"><span>موز و حليب</span></div>
-            <div class="item-card"><span>موز و حليب و فريز</span></div>
-            <div class="item-card"><span>فواكه</span></div>
-            <div class="item-card"><span>موز و حليب وشوكيلا</span></div>
-            <div class="item-card"><span>موز و حليب وعسل</span></div>
-            <div class="item-card"><span>موز و حليب ومكسرات</span></div>
-            <div class="item-card"><span>حليب و قرفة و عسل</span></div>
-            <div class="item-card"><span>حليب و فريز</span></div>
+            <div class="item-card"><span>كوكتيل موز و حليب </span></div>
+            <div class="item-card"><span>كوكتيل موز و حليب و فريز</span></div>
+            <div class="item-card"><span>كوكتيل فواكه </span></div>
+            <div class="item-card"><span>كوكتيل موز و حليب وشوكيلا</span></div>
+            <div class="item-card"><span>كوكتيل موز و حليب وعسل</span></div>
+            <div class="item-card"><span>كوكتيل موز و حليب ومكسرات</span></div>
+            <div class="item-card"><span>كوكتيل حليب و قرفة و عسل</span></div>
+            <div class="item-card"><span>كوكتيل حليب و فريز</span></div>
           </div>
         </div>
       </div>
@@ -768,8 +834,8 @@ footer {
         </button>
         <div class="category-body">
           <div class="items">
-            <div class="item-card"><span>فريز</span></div>
-            <div class="item-card"><span>برتقال</span></div>
+            <div class="item-card"><span>عصير فريز </span></div>
+            <div class="item-card"><span>عصير برتقال</span></div>
             <div class="item-card"><span>ليموناضة</span></div>
             <div class="item-card"><span>بولو</span></div>
             <div class="item-card"><span>موهيتو</span></div>
@@ -777,9 +843,9 @@ footer {
             <div class="item-card"><span>بلاك بيري</span></div>
             <div class="item-card"><span>سفن مع غراندين</span></div>
             <div class="item-card"><span>جاك مع ليمون</span></div>
-            <div class="item-card"><span>أناناس</span></div>
-            <div class="item-card"><span>مانجو</span></div>
-            <div class="item-card"><span>رمان</span></div>
+            <div class="item-card"><span>عصير أناناس</span></div>
+            <div class="item-card"><span>عصير مانجو</span></div>
+            <div class="item-card"><span>عصير رمان</span></div>
             <div class="item-card"><span>بولو مالح</span></div>
             <div class="item-card"><span>موهيتو بطيخ</span></div>
             <div class="item-card"><span>موهيتو علكة</span></div>
@@ -855,10 +921,10 @@ footer {
         <div class="category-body">
           <div class="items">
             <div class="item-card"><span>سلطة نوتيلا</span></div>
-            <div class="item-card"><span>قشطة</span></div>
-            <div class="item-card"><span>مكسرات و عسل</span></div>
-            <div class="item-card"><span>بنانشو</span></div>
-            <div class="item-card"><span>لوتس</span></div>
+            <div class="item-card"><span>سلطة قشطة </span></div>
+            <div class="item-card"><span>سلطة مكسرات و عسل</span></div>
+            <div class="item-card"><span>سلطة بنانشو</span></div>
+            <div class="item-card"><span>سلطة لوتس</span></div>
           </div>
         </div>
       </div>
@@ -874,11 +940,11 @@ footer {
         <div class="category-body">
           <div class="items">
             <div class="item-card"><span>بوظة نوتيلا</span></div>
-            <div class="item-card"><span>كورن فليكس</span></div>
+            <div class="item-card"><span>بوظة كورن فليكس</span></div>
             <div class="item-card"><span>بوظة مشكلة</span></div>
-            <div class="item-card"><span>فريز</span></div>
-            <div class="item-card"><span>أوريو</span></div>
-            <div class="item-card"><span>حليب</span></div>
+            <div class="item-card"><span>بوظة فريز</span></div>
+            <div class="item-card"><span>بوظة أوريو</span></div>
+            <div class="item-card"><span>بوظة حليب</span></div>
           </div>
         </div>
       </div>
@@ -949,12 +1015,12 @@ footer {
   <section id="gallery">
     <div class="section-head" data-aos="fade-up" data-aos-duration="600">
       <span class="eyebrow">GALLERY</span>
-      <h2>✨صنع بسحرك✨</h2>
+      <h2>صنع بسحرك✨</h2>
     </div>
     <div class="gallery-scroll-container" data-aos="fade-up" data-aos-duration="600">
       <div class="gallery-item">
         <img src="1000218586.jpg" alt="طاجن فواكه القنطرة">
-        <div class="gallery-caption">طاجن فواكه القنطرة</div>
+        <div class="gallery-caption">سوشي القنطرة</div>
       </div>
       <div class="gallery-item">
         <img src="1000218585.jpg" alt="عصير نعنع وليمون بولو">
@@ -970,6 +1036,16 @@ footer {
   <footer>
     <p>© 2025 - 2026 قهوة القنطرة (Cafe AL_Qantara)</p>
   </footer>
+</div>
+
+<!-- نافذة اقتراح المشروب المنبثقة التفاعلية -->
+<div id="suggestModal" class="modal-overlay" onclick="closeSuggestModal(event)">
+  <div class="modal-card">
+    <h3>🎲 اقتراح القنطرة لك</h3>
+    <p>شو رأيك تجرّب اليوم؟</p>
+    <div id="suggestedResult" class="suggested-item-name">...</div>
+    <button onclick="closeSuggestModal(null, true)" class="btn primary" style="width: 100%;">صحتين وهنا! ☕</button>
+  </div>
 </div>
 
 <!-- مكتبة حركات التمرير عند النزول -->
@@ -1121,8 +1197,22 @@ function filterMenu() {
 
 function suggestDrink() {
   const allItems = Array.from(document.querySelectorAll('.item-card span:first-child')).map(el => el.innerText);
+  if (allItems.length === 0) return;
+  
   const randomItem = allItems[Math.floor(Math.random() * allItems.length)];
-  alert("🎲 اقتراح القنطرة لك اليوم هو:\n\n✨ " + randomItem + " ✨\n\nنتمنى لك أوقاتاً ممتعة معنا!");
+  
+  const modal = document.getElementById('suggestModal');
+  const resultContainer = document.getElementById('suggestedResult');
+  
+  resultContainer.innerText = randomItem;
+  modal.classList.add('active');
+}
+
+function closeSuggestModal(event, forceClose = false) {
+  if (forceClose || (event && event.target.id === 'suggestModal')) {
+    const modal = document.getElementById('suggestModal');
+    modal.classList.remove('active');
+  }
 }
 </script>
 
